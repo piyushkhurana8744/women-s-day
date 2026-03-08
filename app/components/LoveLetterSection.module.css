@@ -1,0 +1,180 @@
+.section {
+    position: relative;
+    padding: 6rem 2rem;
+    background: linear-gradient(180deg, #fffbf7 0%, #fff0f3 50%, #faf5ff 100%);
+    overflow: hidden;
+}
+
+.sectionBg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 600px 400px at 10% 20%, rgba(253, 164, 175, 0.15), transparent),
+        radial-gradient(ellipse 500px 500px at 90% 80%, rgba(216, 180, 254, 0.15), transparent);
+    pointer-events: none;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Header ── */
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.headerFlower {
+    display: inline-block;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    animation: float 5s ease-in-out infinite;
+}
+
+.sectionTitle {
+    font-family: var(--font-great-vibes), cursive;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: #9f1239;
+    margin-bottom: 0.5rem;
+}
+
+.sectionSubtitle {
+    font-family: var(--font-poppins), sans-serif;
+    font-size: 0.9rem;
+    color: #a34a6a;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* ── Letter Card ── */
+
+.letterCard {
+    position: relative;
+    background: linear-gradient(145deg, #ffffff, #fffbf7, #fff5f7);
+    border-radius: 20px;
+    padding: 3rem 2.5rem;
+    box-shadow:
+        0 20px 60px rgba(159, 18, 57, 0.08),
+        0 4px 20px rgba(159, 18, 57, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(253, 164, 175, 0.2);
+    animation: gentleRotate 8s ease-in-out infinite;
+}
+
+.letterCard::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #f43f5e, #c084fc, #fbbf24, #f43f5e);
+    border-radius: 20px 20px 0 0;
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
+}
+
+.letterStamp {
+    position: absolute;
+    top: -15px;
+    right: 30px;
+    font-size: 2rem;
+    background: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(244, 63, 94, 0.15);
+    border: 2px solid rgba(253, 164, 175, 0.3);
+}
+
+.letterContent {
+    font-family: var(--font-poppins), sans-serif;
+}
+
+.greeting {
+    font-family: var(--font-great-vibes), cursive;
+    font-size: 1.8rem;
+    color: #be185d;
+    margin-bottom: 1.5rem;
+}
+
+.letterPara {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #5a2040;
+    line-height: 1.9;
+    margin-bottom: 1.2rem;
+}
+
+.letterPara strong {
+    color: #e11d48;
+    font-weight: 600;
+}
+
+.closing {
+    font-family: var(--font-playfair), serif;
+    font-size: 1rem;
+    color: #9f1239;
+    font-style: italic;
+    margin-top: 2rem;
+    line-height: 2;
+}
+
+.signature {
+    font-family: var(--font-great-vibes), cursive;
+    font-size: 1.6rem;
+    color: #e11d48;
+}
+
+.letterSeal {
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #f43f5e, #e11d48);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(244, 63, 94, 0.3);
+    animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 768px) {
+    .section {
+        padding: 4rem 1.2rem;
+    }
+
+    .letterCard {
+        padding: 2rem 1.5rem;
+        border-radius: 16px;
+    }
+
+    .greeting {
+        font-size: 1.5rem;
+    }
+
+    .letterPara {
+        font-size: 0.9rem;
+    }
+}

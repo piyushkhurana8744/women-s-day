@@ -1,0 +1,125 @@
+.section {
+    padding: 100px 20px;
+    background: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    font-family: var(--font-playfair), serif;
+    font-size: 2.5rem;
+    color: var(--deep-rose);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #666;
+    font-style: italic;
+}
+
+.timeline {
+    position: relative;
+    margin: 40px 0;
+}
+
+.line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--rose-200), var(--rose-400), var(--rose-200), transparent);
+    transform: translateX(-50%);
+}
+
+.item {
+    width: 100%;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.left {
+    justify-content: flex-start;
+    padding-right: 50%;
+}
+
+.right {
+    justify-content: flex-end;
+    padding-left: 50%;
+}
+
+.content {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(159, 18, 57, 0.05);
+    border: 1px solid var(--rose-100);
+    max-width: 400px;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.content:hover {
+    transform: translateY(-5px);
+    border-color: var(--rose-300);
+    box-shadow: 0 15px 40px rgba(159, 18, 57, 0.1);
+}
+
+.iconWrapper {
+    width: 50px;
+    height: 50px;
+    background: var(--rose-50);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--rose-600);
+    margin-bottom: 15px;
+}
+
+.year {
+    font-weight: 700;
+    color: var(--rose-500);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.eventTitle {
+    font-size: 1.4rem;
+    margin: 5px 0 10px;
+    color: #333;
+}
+
+.description {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .line {
+        left: 30px;
+    }
+
+    .left,
+    .right {
+        justify-content: flex-start;
+        padding-left: 60px;
+        padding-right: 0;
+    }
+}

@@ -1,0 +1,251 @@
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg,
+            #fff0f3 0%,
+            #fce7f3 20%,
+            #f3e8ff 40%,
+            #fef7f0 60%,
+            #fff1f2 80%,
+            #faf5ff 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 10s ease infinite;
+    overflow: hidden;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* ── Floating Orbs ── */
+
+.bgOrb1,
+.bgOrb2,
+.bgOrb3 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+.bgOrb1 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #fda4af, transparent);
+    top: -100px;
+    right: -100px;
+    animation: float 10s ease-in-out infinite;
+}
+
+.bgOrb2 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, #d8b4fe, transparent);
+    bottom: -80px;
+    left: -80px;
+    animation: float 12s ease-in-out infinite reverse;
+}
+
+.bgOrb3 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, #fde68a, transparent);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: float 8s ease-in-out infinite;
+}
+
+/* ── Content ── */
+
+.content {
+    position: relative;
+    z-index: 2;
+    max-width: 750px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Top Decoration ── */
+
+.topDecor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.decorFlower {
+    font-size: 1.5rem;
+    animation: float 4s ease-in-out infinite;
+}
+
+.decorHeart {
+    font-size: 1.8rem;
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.decorLine {
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #fda4af, transparent);
+}
+
+/* ── Badge ── */
+
+.badge {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(253, 164, 175, 0.3);
+    border-radius: 50px;
+    font-family: var(--font-poppins), sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #9f1239;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 20px rgba(244, 63, 94, 0.1);
+}
+
+/* ── Title ── */
+
+.title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.titleSmall {
+    font-family: var(--font-poppins), sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #9f1239;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+
+.titleMain {
+    font-family: var(--font-great-vibes), cursive;
+    font-size: clamp(3rem, 8vw, 6rem);
+    background: linear-gradient(135deg,
+            #e11d48,
+            #9f1239,
+            #c084fc,
+            #e11d48);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 4s linear infinite;
+    line-height: 1.2;
+    filter: drop-shadow(0 2px 4px rgba(159, 18, 57, 0.15));
+}
+
+.titleSub {
+    font-family: var(--font-playfair), serif;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: #be185d;
+    font-weight: 400;
+    font-style: italic;
+    margin-top: 0.3rem;
+}
+
+/* ── Heart Divider ── */
+
+.heartDivider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 1.5rem 0;
+}
+
+.divLine {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #fda4af, #f43f5e, #fda4af, transparent);
+}
+
+.heartIcon {
+    font-size: 1.6rem;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* ── Subtitle ── */
+
+.subtitle {
+    font-family: var(--font-poppins), sans-serif;
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: #6b2142;
+    line-height: 1.8;
+    max-width: 500px;
+    margin: 0 auto 2.5rem;
+}
+
+/* ── Scroll Indicator ── */
+
+.scrollHint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    opacity: 0.6;
+    animation: float 3s ease-in-out infinite;
+}
+
+.scrollText {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: #9f1239;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.scrollArrow {
+    font-size: 1.2rem;
+    color: #f43f5e;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 1.5rem;
+        min-height: 100svh;
+    }
+
+    .badge {
+        font-size: 0.75rem;
+        padding: 0.4rem 1.2rem;
+    }
+
+    .titleSmall {
+        font-size: 1rem;
+        letter-spacing: 4px;
+    }
+
+    .subtitle {
+        font-size: 0.95rem;
+    }
+
+    .decorLine {
+        width: 30px;
+    }
+
+    .divLine {
+        width: 50px;
+    }
+}

@@ -1,0 +1,212 @@
+.section {
+    position: relative;
+    padding: 6rem 2rem;
+    background: linear-gradient(180deg, #faf5ff 0%, #fce7f3 30%, #fff0f3 60%, #fef7f0 100%);
+    overflow: hidden;
+}
+
+.bgPattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 15% 30%, rgba(244, 63, 94, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 85% 70%, rgba(192, 132, 252, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.05) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    max-width: 750px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Header ── */
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.headerDecor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 1.2rem;
+    font-size: 1.5rem;
+}
+
+.headerLine {
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #c084fc, transparent);
+}
+
+.sectionTitle {
+    font-family: var(--font-great-vibes), cursive;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: #7e22ce;
+    margin-bottom: 0.5rem;
+}
+
+.sectionSubtitle {
+    font-family: var(--font-poppins), sans-serif;
+    font-size: 0.9rem;
+    color: #a855f7;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+/* ── Poem Card ── */
+
+.poemCard {
+    position: relative;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(250, 245, 255, 0.85));
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 3rem 2.5rem;
+    border: 1px solid rgba(192, 132, 252, 0.2);
+    box-shadow:
+        0 25px 80px rgba(126, 34, 206, 0.08),
+        0 8px 30px rgba(159, 18, 57, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.poemCard::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #c084fc, #f43f5e, #fbbf24, #c084fc);
+    border-radius: 24px 24px 0 0;
+    background-size: 200% 100%;
+    animation: shimmer 4s linear infinite;
+}
+
+.poemGlow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle, rgba(192, 132, 252, 0.08), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* ── Photo Frame ── */
+
+.photoContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.photoFrame {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    aspect-ratio: 3/4;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow:
+        0 15px 40px rgba(159, 18, 57, 0.15),
+        0 0 0 8px rgba(255, 255, 255, 0.8),
+        0 0 0 10px rgba(253, 164, 175, 0.3);
+    transform: rotate(-1deg);
+    transition: transform 0.5s ease;
+    animation: gentleRotate 6s ease-in-out infinite;
+}
+
+.photoFrame:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+.photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.photoOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, rgba(159, 18, 57, 0.2));
+    pointer-events: none;
+}
+
+/* ── Poem Lines ── */
+
+.poemContent {
+    text-align: center;
+}
+
+.poemLine {
+    font-family: var(--font-poppins), sans-serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: #4a1942;
+    line-height: 2;
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.poemBreak {
+    height: 0.8rem;
+}
+
+/* ── Footer ── */
+
+.poemFooter {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(192, 132, 252, 0.15);
+}
+
+.footerHearts {
+    font-size: 1.4rem;
+    animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 768px) {
+    .section {
+        padding: 4rem 1.2rem;
+    }
+
+    .poemCard {
+        padding: 2rem 1.5rem;
+        border-radius: 18px;
+    }
+
+    .poemLine {
+        font-size: 0.92rem;
+        line-height: 1.8;
+    }
+
+    .headerDecor {
+        font-size: 1.2rem;
+    }
+
+    .headerLine {
+        width: 30px;
+    }
+}
